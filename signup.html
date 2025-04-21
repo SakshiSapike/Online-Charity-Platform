@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Online Charity Platform</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function validateForm() {
+      const fullname = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const dob = document.getElementById('dob').value;
+
+      const namePattern = /^[a-zA-Z\s]+$/;
+      if (!fullname.match(namePattern)) {
+        alert('Full Name should only contain alphabets and spaces.');
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return false;
+      }
+
+      const birthDate = new Date(dob);
+      const age = new Date().getFullYear() - birthDate.getFullYear();
+      if (age < 18) {
+        alert('You must be at least 18 years old to sign up.');
+        return false;
+      }
+
+      const phonePattern = /^[0-9]{10}$/;
+      if (!phone.match(phonePattern)) {
+        alert('Please enter a valid 10-digit phone number.');
+        return false;
+      }
+
+      if (!fullname || !email || !password || !confirmPassword || !phone || !address || !dob) {
+        alert('Please fill out all the fields.');
+        return false;
+      }
+
+      return true;
+    }
+
+    function redirectToHome() {
+      setTimeout(() => {
+        window.location.href = "homepage.html";
+      }, 500);
+    }
+
+    function togglePasswordVisibility(id) {
+      const field = document.getElementById(id);
+      field.type = field.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+</head>
+<body>
+  <div class="signup-container">
+    <div class="signup-form">
+      <h2>Create Your Account</h2>
+      <form onsubmit="event.preventDefault(); if (validateForm()) redirectToHome();" method="POST">
+        <div class="input-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name" />
+        </div>
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email" />
+        </div>
+        <div class="input-group toggle-password">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="Create a password" />
+          <span class="toggle-password-icon" onclick="togglePasswordVisibility('password')">&#128065;</span>
+        </div>
+        <div class="input-group toggle-password">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password" />
+          <span class="toggle-password-icon" onclick="togglePasswordVisibility('confirm-password')">&#128065;</span>
+        </div>
+        <div class="input-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" />
+        </div>
+        <div class="input-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required />
+        </div>
+        <div class="input-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" required placeholder="Enter your address" />
+        </div>
+        <button type="submit">Sign Up</button>
+        <div class="login-link">
+          <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Donation - Online Charity Platform</title>
+    <link rel="stylesheet" href="stylesacceptor.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Online Charity Platform</h1>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="donation.html">Donate</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Donation Acceptor Section -->
+    <section class="acceptor-section">
+        <h2>Request for Help</h2>
+        <form class="acceptor-form" onsubmit="return validateForm()">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required minlength="3">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+            <label for="amount">Amount Needed (in INR)</label>
+            <input type="number" id="amount" name="amount" min="100" required>
+
+            <label for="reason">Reason for Request</label>
+            <textarea id="reason" name="reason" placeholder="Explain your need in detail..." minlength="20" maxlength="1000" required></textarea>
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Online Charity Platform | All rights reserved.</p>
+        <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function validateForm() {
+            const reason = document.getElementById("reason").value.trim();
+            if (reason.length < 20) {
+                alert("Please provide a more detailed reason (at least 20 characters).");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>
