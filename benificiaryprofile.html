@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beneficiary Profile</title>
+  <link rel="stylesheet" href="stylebenificiaryprofile.css">
+</head>
+<body>
+
+<div class="profile-container">
+
+  <!-- Profile Section -->
+  <div class="profile-header">
+    <img src="Indianwomen.jpg" alt="Profile Photo" class="profile-photo">
+    <h2>Arohi Sharma</h2>
+    <p>Email: arohisharma@gmail.com</p>
+    <p>Reason: Help for College Education</p>
+    <p>Amount Needed: ₹50,000</p>
+    <p>Emergency: Yes</p>
+  </div>
+
+  <!-- Progress Circle -->
+  <div class="progress-section">
+    <h3>Donation Progress</h3>
+    <div class="progress-circle">
+      <div class="progress-value" id="progressValue">0%</div>
+    </div>
+    <p id="amountText">₹22,500 collected</p>
+  </div>
+
+  <!-- Donors List -->
+  <div class="donors-section">
+    <h3>People Who Donated</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Donor Name</th>
+          <th>Amount Donated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Riya Kapoor</td>
+          <td>₹5,000</td>
+        </tr>
+        <tr>
+          <td>Aditya Verma</td>
+          <td>₹10,000</td>
+        </tr>
+        <tr>
+          <td>Shruti Mehra</td>
+          <td>₹7,500</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+  // JavaScript to animate the circular progress
+  let progressValue = document.getElementById("progressValue");
+  let progressStartValue = 0;
+  let progressEndValue = 45; // 45% collected (22500 out of 50000)
+  let speed = 30;
+
+  let progress = setInterval(() => {
+    progressStartValue++;
+    progressValue.textContent = `${progressStartValue}%`;
+    document.querySelector('.progress-circle').style.background = 
+      `conic-gradient(#16a085 ${progressStartValue * 3.6}deg, #ededed 0deg)`;
+    
+    if (progressStartValue >= progressEndValue) {
+      clearInterval(progress);
+    }
+  }, speed);
+</script>
+
+</body>
+</html>

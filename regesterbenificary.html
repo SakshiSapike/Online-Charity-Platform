@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register as Beneficiary</title>
+    <link rel="stylesheet" href="stylebenificiary.css">
+</head>
+<body>
+
+<div class="register-container">
+    <div class="register-card">
+        <h2>Register as a Beneficiary</h2>
+        <form id="registerForm">
+            
+            <div class="input-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" required placeholder="Enter your full name">
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <label for="reason">Reason for Request</label>
+                <textarea id="reason" name="reason" required placeholder="Explain why you need help"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="amount_needed">Amount Needed (₹)</label>
+                <input type="number" id="amount_needed" name="amount_needed" required placeholder="Enter required amount">
+            </div>
+
+            <div class="input-group">
+                <label for="emergency_case">Is it an Emergency?</label>
+                <select id="emergency_case" name="emergency_case" required>
+                    <option value="">-- Select --</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <button type="submit">Register</button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Stop form from submitting normally
+
+    const fullName = document.getElementById('full_name').value;
+    const email = document.getElementById('email').value;
+    const reason = document.getElementById('reason').value;
+    const amount = document.getElementById('amount_needed').value;
+    const emergency = document.getElementById('emergency_case').value;
+
+    // Store the values temporarily in localStorage
+    localStorage.setItem('fullName', fullName);
+    localStorage.setItem('email', email);
+    localStorage.setItem('reason', reason);
+    localStorage.setItem('amount', amount);
+    localStorage.setItem('emergency', emergency);
+
+    // Redirect to profile page
+    window.location.href = "benificiaryprofile.html";
+});
+</script>
+
+</body>
+</html>
