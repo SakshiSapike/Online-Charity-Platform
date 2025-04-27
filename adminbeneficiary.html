@@ -12,6 +12,10 @@
             border: 1px solid #ddd;
             padding: 20px;
         }
+        .editable {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
@@ -40,18 +44,19 @@
     <!-- Main Content -->
     <main>
         <div class="search-filter">
-            <input type="text" placeholder="Search by Name or ID">
-            <select>
+            <input type="text" id="search" placeholder="Search by Name or ID" oninput="filterBeneficiaries()">
+            <select id="statusFilter" onchange="filterBeneficiaries()">
+                <option value="">Select Status</option>
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
             </select>
-            <input type="date" placeholder="Start Date">
-            <input type="date" placeholder="End Date">
-            <button>Filter</button>
+            <input type="date" id="startDate" onchange="filterBeneficiaries()">
+            <input type="date" id="endDate" onchange="filterBeneficiaries()">
+            <button onclick="filterBeneficiaries()">Filter</button>
         </div>
 
         <div class="beneficiary-list">
-            <table>
+            <table id="beneficiaryTable">
                 <thead>
                     <tr>
                         <th>Beneficiary Name</th>
@@ -62,10 +67,11 @@
                         <th>Donation Status</th>
                         <th>Last Donation Date</th>
                         <th>View Details</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="beneficiary-row" data-name="John Doe" data-id="BEN12345" data-status="active" data-last-donation="2025-04-21">
                         <td>John Doe</td>
                         <td>BEN12345</td>
                         <td>123-456-7890</td>
@@ -74,8 +80,9 @@
                         <td>Active</td>
                         <td>2025-04-21</td>
                         <td><button class="view-details" onclick="toggleProfile('john-doe')">View</button></td>
+                        <td><button onclick="editBeneficiary('john-doe')">Edit</button></td>
                     </tr>
-                    <tr>
+                    <tr class="beneficiary-row" data-name="Jane Smith" data-id="BEN54321" data-status="active" data-last-donation="2025-04-20">
                         <td>Jane Smith</td>
                         <td>BEN54321</td>
                         <td>987-654-3210</td>
@@ -84,6 +91,7 @@
                         <td>Active</td>
                         <td>2025-04-20</td>
                         <td><button class="view-details" onclick="toggleProfile('jane-smith')">View</button></td>
+                        <td><button onclick="editBeneficiary('jane-smith')">Edit</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -210,6 +218,70 @@
             } else {
                 profile.style.display = "none";
             }
+        }
+
+        function filterBeneficiaries() {
+            const searchValue = document.getElementById('search').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+
+            const rows = document.querySelectorAll('.beneficiary-row');
+
+            rows.forEach(row => {
+                const name = row.dataset.name.toLowerCase();
+                const status = row.dataset.status;
+                const lastDonationDate = row.dataset.lastDonation;
+
+                let isMatch = true;
+
+                if (searchValue && !name.includes(searchValue)) {
+                    isMatch = false;
+                }
+
+                if (statusFilter && status !== statusFilter) {
+                    isMatch = false;
+                }
+
+                if (startDate && lastDonationDate < startDate) {
+                    isMatch = false;
+                }
+
+                if (endDate && lastDonationDate > endDate) {
+                    isMatch = false;
+                }
+
+                row.style.display = isMatch ? "" : "none";
+            });
+        }
+
+        function editBeneficiary(beneficiaryId) {
+            const profile = document.getElementById(beneficiaryId);
+            const fields = profile.querySelectorAll("p");
+            
+            fields.forEach(field => {
+                const text = field.innerHTML.split(": ");
+                const value = text[1];
+                field.innerHTML = `${text[0]}: <input type="text" class="editable" value="${value}">`;
+            });
+            
+            const buttons = profile.querySelectorAll("button");
+            buttons.forEach(button => button.style.display = "none");
+
+            const saveButton = document.createElement("button");
+            saveButton.innerText = "Save Changes";
+            saveButton.onclick = function() {
+                fields.forEach(field => {
+                    const input = field.querySelector('input');
+                    if (input) {
+                        field.innerHTML = `${field.innerHTML.split(": ")[0]}: ${input.value}`;
+                    }
+                });
+                saveButton.remove();
+                buttons.forEach(button => button.style.display = "inline-block");
+            };
+
+            profile.appendChild(saveButton);
         }
     </script>
 </body>

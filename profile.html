@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Profile - Online Charity Platform</title>
   <link rel="stylesheet" href="styleprofile.css" />
+  <script>
+    // Function to toggle the edit mode
+    function toggleEditMode() {
+      var editableFields = document.querySelectorAll('.editable');
+      var editButton = document.getElementById('editButton');
+      var saveButton = document.getElementById('saveButton');
+      
+      // Toggle between read-only and editable fields
+      editableFields.forEach(function(field) {
+        field.disabled = !field.disabled;
+      });
+      
+      // Toggle button visibility
+      editButton.style.display = editButton.style.display === 'none' ? 'inline' : 'none';
+      saveButton.style.display = saveButton.style.display === 'none' ? 'inline' : 'none';
+    }
+
+    // Function to save the updated profile details
+    function saveProfile() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var dob = document.getElementById('dob').value;
+      var address = document.getElementById('address').value;
+
+      // Here you can send the updated data to the server via an API or store it in local storage, etc.
+      alert('Profile updated successfully!');
+      
+      // After saving, toggle back to non-editable mode
+      toggleEditMode();
+    }
+  </script>
 </head>
 <body>
 
@@ -30,61 +62,88 @@
       <div class="profile-icon">
         <img src="profilepic.jpg" alt="User Profile Picture" />
       </div>
+
+      <!-- Editable Profile Details Section -->
       <div class="profile-details">
-        <h2>John Doe</h2>
-        <p><strong>Email:</strong> john.doe@example.com</p>
-        <p><strong>Phone:</strong> 123-456-7890</p>
-        <p><strong>Date of Birth:</strong> January 1, 1995</p>
-        <p><strong>Joined:</strong> January 2025</p>
-        <button><a href="updateprofile.html">Edit Profile</a></button>
+        <h2>Profile</h2>
+        <!-- Profile Edit Form -->
+        <form id="profileForm">
+          <div>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" value="John Doe" class="editable" disabled />
+          </div>
+          
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="john.doe@example.com" class="editable" disabled />
+          </div>
+          
+          <div>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" value="123-456-7890" class="editable" disabled />
+          </div>
+          
+          <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" value="1995-01-01" class="editable" disabled />
+          </div>
+
+          <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="123 Charity Lane, City, State, ZIP" class="editable" disabled />
+          </div>
+
+          <div>
+            <button type="button" id="editButton" onclick="toggleEditMode()">Edit Profile</button>
+            <button type="button" id="saveButton" onclick="saveProfile()" style="display:none;">Save Changes</button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- Donation History Section -->
-  <!-- Donation History Section -->
-<div class="donation-history">
-  <h3>Donation History</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Cause</th>
-        <th>Payment Method</th>
-        <th>Transaction ID</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>March 15, 2025</td>
-        <td>₹1000</td>
-        <td>Child Education</td>
-        <td>UPI</td>
-        <td>TXN123456789</td>
-        <td>Completed</td>
-      </tr>
-      <tr>
-        <td>April 1, 2025</td>
-        <td>₹500</td>
-        <td>Food for All</td>
-        <td>UPI</td>
-        <td>TXN987654321</td>
-        <td>Completed</td>
-      </tr>
-      <tr>
-        <td>April 10, 2025</td>
-        <td>₹1200</td>
-        <td>Medical Relief</td>
-        <td>UPI</td>
-        <td>TXN246813579</td>
-        <td>Completed</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+  <div class="donation-history">
+    <h3>Donation History</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Cause</th>
+          <th>Payment Method</th>
+          <th>Transaction ID</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>March 15, 2025</td>
+          <td>₹1000</td>
+          <td>Child Education</td>
+          <td>UPI</td>
+          <td>TXN123456789</td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>April 1, 2025</td>
+          <td>₹500</td>
+          <td>Food for All</td>
+          <td>UPI</td>
+          <td>TXN987654321</td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td>April 10, 2025</td>
+          <td>₹1200</td>
+          <td>Medical Relief</td>
+          <td>UPI</td>
+          <td>TXN246813579</td>
+          <td>Completed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- Footer -->
   <footer>
