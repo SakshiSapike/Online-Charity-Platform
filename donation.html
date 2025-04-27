@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styledonation.css" />
 </head>
 <body>
-     <!-- Header Section -->
+  <!-- Header Section -->
   <header>
     <div class="header-container">
       <h1>Online Charity Platform</h1>
@@ -43,12 +43,20 @@
 
     <div class="input-group">
       <label for="purpose">Purpose</label>
-      <select id="purpose" name="purpose" required>
+      <select id="purpose" name="purpose" required onchange="loadBeneficiaries()">
         <option value="">Select a purpose</option>
         <option value="education">Education Support</option>
         <option value="medical">Medical Aid</option>
         <option value="food">Food Distribution</option>
         <option value="other">Other</option>
+      </select>
+    </div>
+
+    <!-- Beneficiary List (to be populated based on selected purpose) -->
+    <div class="input-group" id="beneficiary-list-container" style="display: none;">
+      <label for="beneficiary">Select Beneficiary</label>
+      <select id="beneficiary" name="beneficiary">
+        <!-- Beneficiaries will be added here dynamically -->
       </select>
     </div>
 
@@ -61,6 +69,57 @@
   </form>
 
   <script>
+    // Sample beneficiary data for different purposes
+    const beneficiariesData = {
+      education: [
+        { name: "John Doe", totalDonations: 5000, needed: 15000, contact: "123-456-7890" },
+        { name: "Alice Green", totalDonations: 3000, needed: 15000, contact: "234-567-8901" },
+      ],
+      medical: [
+        { name: "Sarah White", totalDonations: 7000, needed: 15000, contact: "345-678-9012" },
+        { name: "Mike Brown", totalDonations: 2000, needed: 15000, contact: "456-789-0123" },
+      ],
+      food: [
+        { name: "David Black", totalDonations: 8000, needed: 15000, contact: "567-890-1234" },
+        { name: "Eve Blue", totalDonations: 1500, needed: 15000, contact: "678-901-2345" },
+      ],
+      other: [
+        { name: "George Red", totalDonations: 1000, needed: 15000, contact: "789-012-3456" },
+      ],
+    };
+
+    // Function to load beneficiaries based on selected purpose
+    function loadBeneficiaries() {
+      const purpose = document.getElementById("purpose").value;
+      const beneficiaryListContainer = document.getElementById("beneficiary-list-container");
+      const beneficiarySelect = document.getElementById("beneficiary");
+
+      if (purpose && beneficiariesData[purpose]) {
+        beneficiaryListContainer.style.display = "block"; // Show the beneficiary selection
+        const beneficiaries = beneficiariesData[purpose];
+
+        // Clear the existing options
+        beneficiarySelect.innerHTML = "";
+
+        // Add a default "Select" option
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.textContent = "Select a Beneficiary";
+        beneficiarySelect.appendChild(defaultOption);
+
+        // Add the beneficiaries based on the selected purpose
+        beneficiaries.forEach((beneficiary) => {
+          const option = document.createElement("option");
+          option.value = beneficiary.name;
+          option.textContent = `${beneficiary.name} - Total Donations: ₹${beneficiary.totalDonations} - Contact: ${beneficiary.contact}`;
+          beneficiarySelect.appendChild(option);
+        });
+      } else {
+        beneficiaryListContainer.style.display = "none"; // Hide if no purpose selected
+      }
+    }
+
+    // Form validation
     function validateDonationForm() {
       const name = document.getElementById('fullname').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -95,8 +154,9 @@
       return true;
     }
   </script>
-   <!-- Footer -->
-   <footer>
+
+  <!-- Footer -->
+  <footer>
     <div class="footer-container">
       <p>&copy; 2025 Online Charity Platform | All rights reserved.</p>
       <ul>
