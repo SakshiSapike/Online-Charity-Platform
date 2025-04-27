@@ -369,7 +369,7 @@ button a {
 .mission-box h4 {
   margin: 0 0 5px 0;
   font-size: 18px;
-  color: #4CAF50; /* Green title inside white box */
+  color: #1abc9c; /* Green title inside white box */
 }
 
 .mission-box p {
@@ -424,7 +424,7 @@ button a {
 }
 
 .news-content h2 strong {
-  color: #4CAF50; /* green color */
+  color: #16a085; /* green color */
 }
 
 .news-content h3 {
@@ -442,7 +442,7 @@ button a {
 
 .read-more {
   display: inline-block;
-  background-color: #4CAF50;
+  background-color: #16a085;
   color: #fff;
   padding: 10px 25px;
   border-radius: 6px;
@@ -452,5 +452,24 @@ button a {
 }
 
 .read-more:hover {
-  background-color: #43a047;
+  background-color: #16a085;
+}
+.read-more-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #16a085;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.read-more:hover {
+  background-color: #12876f;
 }

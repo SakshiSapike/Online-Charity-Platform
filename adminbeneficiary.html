@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficiary Details</title>
+    <link rel="stylesheet" href="stylesadmnibeneficiary.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Beneficiaries</a></li>
+                <li><a href="#">Donations</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+        <div class="admin-profile">
+            <span>Admin Name</span>
+            <div class="dropdown">
+                <button>▼</button>
+                <div class="dropdown-content">
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="search-filter">
+            <input type="text" placeholder="Search by Name or ID">
+            <select>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+            <input type="date" placeholder="Start Date">
+            <input type="date" placeholder="End Date">
+            <button>Filter</button>
+        </div>
+
+        <div class="beneficiary-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Beneficiary Name</th>
+                        <th>Beneficiary ID</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Total Donations Received</th>
+                        <th>Donation Status</th>
+                        <th>Last Donation Date</th>
+                        <th>View Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>BEN12345</td>
+                        <td>123-456-7890</td>
+                        <td>john@email.com</td>
+                        <td>$500</td>
+                        <td>Active</td>
+                        <td>2025-04-21</td>
+                        <td><button class="view-details">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>BEN54321</td>
+                        <td>987-654-3210</td>
+                        <td>jane@email.com</td>
+                        <td>$1200</td>
+                        <td>Active</td>
+                        <td>2025-04-20</td>
+                        <td><button class="view-details">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Beneficiary Profile Details -->
+        <div class="beneficiary-profile">
+            <h2>Beneficiary Profile: John Doe</h2>
+            <h3>Basic Information</h3>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Beneficiary ID:</strong> BEN12345</p>
+            <p><strong>Phone:</strong> 123-456-7890</p>
+            <p><strong>Email:</strong> john@email.com</p>
+            <p><strong>Address:</strong> 123 Charity Lane, City, State, ZIP</p>
+
+            <h3>Donation Summary</h3>
+            <p><strong>Total Donations Received:</strong> $500</p>
+            <h4>Donation History</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Donor Name</th>
+                        <th>Amount Donated</th>
+                        <th>Payment Method</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-04-15</td>
+                        <td>Sarah Green</td>
+                        <td>$200</td>
+                        <td>Credit Card</td>
+                        <td>Successful</td>
+                    </tr>
+                    <tr>
+                        <td>2025-04-10</td>
+                        <td>Mike Brown</td>
+                        <td>$100</td>
+                        <td>Bank Transfer</td>
+                        <td>Successful</td>
+                    </tr>
+                    <tr>
+                        <td>2025-04-05</td>
+                        <td>Emily White</td>
+                        <td>$200</td>
+                        <td>PayPal</td>
+                        <td>Successful</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Actions</h3>
+            <button>Edit Beneficiary Info</button>
+            <button>Deactivate Beneficiary</button>
+            <button>Download Donation Report</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Charity Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>

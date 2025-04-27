@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose Your Role - Online Charity Platform</title>
+  <link rel="stylesheet" href="indexstyle.css">
+  <script>
+    function goToDonor() {
+      window.location.href = 'login.html';
+    }
+
+    function goToBeneficiary() {
+      window.location.href = 'regesterbenificary.html'; 
+    }
+
+    function goToAdmin() {
+      window.location.href = 'adminlogin.html'; 
+    }
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Welcome to Online Charity Platform</h1>
+  <p>Please select your role:</p>
+
+  <div class="card-group">
+    <div class="card">
+      <h2>Donate Now</h2>
+      <p>Your donation can make a big difference. Help us spread love and kindness.</p>
+      <button onclick="goToDonor()">Donate</button>
+    </div>
+
+    <div class="card">
+      <h2>Beneficiary(Accept Donation)</h2>
+      <p>Become a beneficiary and receive the support you need to achieve your dreams and overcome challenges.</p>
+      <button onclick="goToBeneficiary()">Beneficiary(Accept Donation) </button>
+    </div>
+
+    <div class="card">
+      <h2>Admin</h2>
+      <p>Support various causes and initiatives that bring positive change to the world.</p>
+      <button onclick="goToAdmin()">Admin</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
