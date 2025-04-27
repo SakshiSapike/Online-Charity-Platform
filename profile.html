@@ -6,6 +6,21 @@
   <title>User Profile - Online Charity Platform</title>
   <link rel="stylesheet" href="styleprofile.css" />
   <script>
+    // Function to load profile data from localStorage
+    function loadProfile() {
+      const name = localStorage.getItem('name') || 'John Doe';
+      const email = localStorage.getItem('email') || 'john.doe@example.com';
+      const phone = localStorage.getItem('phone') || '123-456-7890';
+      const dob = localStorage.getItem('dob') || '1995-01-01';
+      const address = localStorage.getItem('address') || '123 Charity Lane, City, State, ZIP';
+
+      document.getElementById('name').value = name;
+      document.getElementById('email').value = email;
+      document.getElementById('phone').value = phone;
+      document.getElementById('dob').value = dob;
+      document.getElementById('address').value = address;
+    }
+
     // Function to toggle the edit mode
     function toggleEditMode() {
       var editableFields = document.querySelectorAll('.editable');
@@ -30,11 +45,22 @@
       var dob = document.getElementById('dob').value;
       var address = document.getElementById('address').value;
 
-      // Here you can send the updated data to the server via an API or store it in local storage, etc.
+      // Save the data to localStorage
+      localStorage.setItem('name', name);
+      localStorage.setItem('email', email);
+      localStorage.setItem('phone', phone);
+      localStorage.setItem('dob', dob);
+      localStorage.setItem('address', address);
+
       alert('Profile updated successfully!');
-      
+
       // After saving, toggle back to non-editable mode
       toggleEditMode();
+    }
+
+    // Load profile data when the page is loaded
+    window.onload = function() {
+      loadProfile();
     }
   </script>
 </head>
@@ -70,27 +96,27 @@
         <form id="profileForm">
           <div>
             <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" value="John Doe" class="editable" disabled />
+            <input type="text" id="name" name="name" class="editable" disabled />
           </div>
           
           <div>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="john.doe@example.com" class="editable" disabled />
+            <input type="email" id="email" name="email" class="editable" disabled />
           </div>
           
           <div>
             <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone" value="123-456-7890" class="editable" disabled />
+            <input type="text" id="phone" name="phone" class="editable" disabled />
           </div>
           
           <div>
             <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" value="1995-01-01" class="editable" disabled />
+            <input type="date" id="dob" name="dob" class="editable" disabled />
           </div>
 
           <div>
             <label for="address">Address:</label>
-            <input type="text" id="address" name="address" value="123 Charity Lane, City, State, ZIP" class="editable" disabled />
+            <input type="text" id="address" name="address" class="editable" disabled />
           </div>
 
           <div>
