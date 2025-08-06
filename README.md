@@ -30,6 +30,11 @@ An online web-based platform designed to connect donors with individuals in need
 > Add screenshots here if available  
 > You can use:  
 > ![Component UI](https://github.com/SakshiSapike/Online-Charity-Platform/blob/main/Asset/aboutus.png)
+> ![Component UI](https://github.com/SakshiSapike/Online-Charity-Platform/blob/main/Asset/admin.png)
+> ![Component UI](https://github.com/SakshiSapike/Online-Charity-Platform/blob/main/Asset/contactus.png)
+ > ![Component UI](https://github.com/SakshiSapike/Online-Charity-Platform/blob/main/Asset/detaildata.png)
+> ![Component UI](https://github.com/SakshiSapike/Online-Charity-Platform/blob/main/Asset/news.png)
+> ![Component UI](https://github.com/SakshiSapike/Online-Charity-Platform/blob/main/Asset/hp.png)
   
 > `![Admin Panel](screenshots/admin.png)`
 
