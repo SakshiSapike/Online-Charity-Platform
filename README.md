@@ -29,7 +29,7 @@ An online web-based platform designed to connect donors with individuals in need
 
 > Add screenshots here if available  
 > You can use:  
-> `![Home Page](screenshots/home.png)`  
+> `![Home Page]"C:\Users\saksh\Pictures\Screenshots\Screenshot 2025-05-06 111552.png")`  
 > `![Admin Panel](screenshots/admin.png)`
 
 ---
