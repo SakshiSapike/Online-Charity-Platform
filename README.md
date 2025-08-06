@@ -29,7 +29,8 @@ An online web-based platform designed to connect donors with individuals in need
 
 > Add screenshots here if available  
 > You can use:  
-> `![Home Page]"C:\Users\saksh\Pictures\Screenshots\Screenshot 2025-05-06 111552.png")`  
+> ![Component UI](https://github.com/SakshiSapike/Online-Charity-Platform/blob/main/Asset/aboutus.png)
+  
 > `![Admin Panel](screenshots/admin.png)`
 
 ---
