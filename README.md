@@ -41,50 +41,50 @@ An online web-based platform designed to connect donors with individuals in need
 ---
 
 ## 📂 Project Structure
-online-charity-platform/
-│
-├── index.php                     # Landing page (home)
-├── login.php                     # User login page
-├── register.php                  # User registration page
-├── logout.php                    # Logout script
-├── db_connect.php                # Database connection file
-│
-├── /dashboard/                   # Dashboards for different users
-│   ├── donor_dashboard.php
-│   ├── beneficiary_dashboard.php
-│   └── admin_dashboard.php
-│
-├── /requests/                    # Donation request handling
-│   ├── submit_request.php
-│   ├── view_requests.php
-│   ├── approve_request.php       # Admin approval script
-│   └── delete_request.php
-│
-├── /donations/                   # Donation-related actions
-│   ├── donate.php
-│   └── donation_history.php
-│
-├── /admin/                       # Admin-specific functions
-│   ├── manage_users.php
-│   ├── view_reports.php
-│   └── site_settings.php
-│
-├── /includes/                    # Reusable components
-│   ├── header.php
-│   ├── footer.php
-│   └── nav.php
-│
-├── /assets/                      # Static resources
-│   ├── /css/
-│   │   └── style.css
-│   ├── /js/
-│   │   └── script.js
-│   └── /images/
-│       └── logo.png
-│
-├── /screenshots/                 # Screenshots for README
-│   ├── home.png
-│   └── dashboard.png
-│
-└── README.md                     # Project documentation
+- online-charity-platform/
+- │
+- ├── index.php                     # Landing page (home)
+- ├── login.php                     # User login page
+- ├── register.php                  # User registration page
+- ├── logout.php                    # Logout script
+- ├── db_connect.php                # Database connection file
+- │
+- ├── /dashboard/                   # Dashboards for different users
+- │   ├── donor_dashboard.php
+- │   ├── beneficiary_dashboard.php
+- │   └── admin_dashboard.php
+- │
+- ├── /requests/                    # Donation request handling
+- │   ├── submit_request.php
+- │   ├── view_requests.php
+- │   ├── approve_request.php       # Admin approval script
+- │   └── delete_request.php
+- │
+- ├── /donations/                   # Donation-related actions
+- │   ├── donate.php
+- │   └── donation_history.php
+- │
+- ├── /admin/                       # Admin-specific functions
+- │   ├── manage_users.php
+- │   ├── view_reports.php
+- │   └── site_settings.php
+- │
+- ├── /includes/                    # Reusable components
+- │   ├── header.php
+- │   ├── footer.php
+- │   └── nav.php
+- │
+- ├── /assets/                      # Static resources
+- │   ├── /css/
+- │   │   └── style.css
+- │   ├── /js/
+- │   │   └── script.js
+- │   └── /images/
+- │       └── logo.png
+- │
+- ├── /screenshots/                 # Screenshots for README
+- │   ├── home.png
+- │   └── dashboard.png
+- │
+- └── README.md                     # Project documentation
 
